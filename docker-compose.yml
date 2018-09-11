@@ -1,10 +1,10 @@
 web:
     image: nginx:latest
     ports:
-        - "8080:80"
+        - "8989:80"
     volumes:
         - ./src:/var/www/public
-        - ./site.conf:/etc/nginx/conf.d/site.conf
+        - ./configs/site.conf:/etc/nginx/conf.d/default.conf
     links:
         - php
 php:
