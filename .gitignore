@@ -1,1 +1,6 @@
+src/vendor
 .idea
+src/Homestead.json
+src/Homestead.yaml
+src/.env
+.DS_Store

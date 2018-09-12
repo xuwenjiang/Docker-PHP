@@ -3,11 +3,11 @@ web:
     ports:
         - "8989:80"
     volumes:
-        - ./src:/var/www/public
+        - ./src:/var/www/
         - ./configs/site.conf:/etc/nginx/conf.d/default.conf
     links:
         - php
 php:
-    image: php:7-fpm
+    build: ./dockerfiles/php
     volumes:
-        - ./src:/var/www/public
+        - ./src:/var/www/
