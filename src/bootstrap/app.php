@@ -99,4 +99,7 @@ $app->router->group([
     require __DIR__.'/../routes/web.php';
 });
 
+// load test configure (if you see source code, it will go base/config/test.php
+$app->configure('test');
+
 return $app;
