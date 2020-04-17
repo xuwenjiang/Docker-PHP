@@ -1,4 +1,4 @@
-FROM php:7-fpm
+FROM php:7.4-fpm
 USER root
 WORKDIR /var/www
 # install vim and git
