@@ -100,6 +100,21 @@ $app->router->group([
 });
 
 /**
+ * Document [middleware] Register a Global Middleware
+ */
+//$app->middleware([
+//    App\Http\Middleware\OldMiddleware::class
+//]);
+
+
+/**
+ * Document [middleware] Assigning Middleware To Routes
+ */
+$app->routeMiddleware([
+    'myTestMiddleware' => App\Http\Middleware\OldMiddleware::class,
+]);
+
+/**
  * Document [Configuration] Play with configurations.
  * load test configure (if you see source code, it will go base/config/test.php
  */

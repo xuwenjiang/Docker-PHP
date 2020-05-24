@@ -23,8 +23,12 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('about', function () {
+$router->get('about', ['middleware' => 'myTestMiddleware', function () {
     return 'about';
+}]);
+
+$router->get('home', function () {
+    return 'home';
 });
 
 /**

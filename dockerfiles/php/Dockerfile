@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:7.1-fpm
 USER root
 WORKDIR /var/www
 # install vim and git
@@ -14,6 +14,11 @@ RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-di
 
 # install php extension
 RUN docker-php-ext-install zip
+
+# XDebug
+RUN pecl install -f xdebug-2.9.5
+RUN docker-php-ext-enable xdebug
+ADD debug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
