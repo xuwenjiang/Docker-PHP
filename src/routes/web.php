@@ -84,3 +84,8 @@ $router->get('hello', ['as' => 'greeting', function () {
 $router->get('www', function () {
     return redirect()->route('greeting');
 });
+
+/**
+ * Document, [Basic Controllers]
+ */
+$router->get('hello/{name}', 'GreetingController@sayHello');

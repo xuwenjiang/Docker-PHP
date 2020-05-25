@@ -16,7 +16,7 @@ RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-di
 RUN docker-php-ext-install zip
 
 # XDebug
-RUN pecl install -f xdebug-2.9.5
+RUN pecl install -f xdebug-2.5.5
 RUN docker-php-ext-enable xdebug
 ADD debug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
