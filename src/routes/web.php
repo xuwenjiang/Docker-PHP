@@ -12,7 +12,7 @@
 */
 
 $router->get('/', function () use ($router) {
-
+    $results = DB::select("SELECT * FROM user");
     /**
      * Document [Configuration] Play with configurations.
      */
@@ -23,7 +23,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('about', ['middleware' => 'myTestMiddleware', function () {
+$router->get('about', ['middleware' => 'oldMiddleware', function () {
     return 'about';
 }]);
 
@@ -88,4 +88,6 @@ $router->get('www', function () {
 /**
  * Document, [Basic Controllers]
  */
-$router->get('hello/{name}', 'GreetingController@sayHello');
+$router->put('hello/{name}', 'GreetingController@sayHello');
+
+$router->get('users', 'UserController@getUsers');

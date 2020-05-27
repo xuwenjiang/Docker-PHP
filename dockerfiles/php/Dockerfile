@@ -14,6 +14,7 @@ RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-di
 
 # install php extension
 RUN docker-php-ext-install zip
+RUN docker-php-ext-install pdo_mysql
 
 # XDebug
 RUN pecl install -f xdebug-2.5.5

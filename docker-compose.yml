@@ -14,3 +14,15 @@ services:
     build: ./dockerfiles/php
     volumes:
       - ./src:/var/www/
+  mysqldb:
+    image: mysql:5.6
+    restart: always
+    ports:
+      - "13306:3306"
+    volumes:
+      - ./configs/mysql.conf:/etc/mysql/conf.d/mysql.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: password

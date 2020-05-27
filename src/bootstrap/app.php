@@ -23,7 +23,7 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
-// $app->withFacades();
+$app->withFacades();
 
 // $app->withEloquent();
 
@@ -111,7 +111,7 @@ $app->router->group([
  * Document [middleware] Assigning Middleware To Routes
  */
 $app->routeMiddleware([
-    'myTestMiddleware' => App\Http\Middleware\OldMiddleware::class,
+    'oldMiddleware' => App\Http\Middleware\OldMiddleware::class,
 ]);
 
 /**
