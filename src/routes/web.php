@@ -12,7 +12,6 @@
 */
 
 $router->get('/', function () use ($router) {
-    $results = DB::select("SELECT * FROM user");
     /**
      * Document [Configuration] Play with configurations.
      */
@@ -77,9 +76,9 @@ $router->get('regular/{param:[0-9]+}', function ($param = null) {
  * Document [Routing]
  * named
  */
-$router->get('hello', ['as' => 'greeting', function () {
-    return 'hello world';
-}]);
+//$router->get('hello', ['as' => 'greeting', function () {
+//    return 'hello world';
+//}]);
 
 $router->get('www', function () {
     return redirect()->route('greeting');
@@ -88,6 +87,7 @@ $router->get('www', function () {
 /**
  * Document, [Basic Controllers]
  */
-$router->put('hello/{name}', 'GreetingController@sayHello');
+$router->get('hello[/{name}]', 'GreetingController@sayHello');
 
-$router->get('users', 'UserController@getUsers');
+$router->get('users[/{id}]', 'UserController@getUsers');
+$router->post('users', 'UserController@postUser');

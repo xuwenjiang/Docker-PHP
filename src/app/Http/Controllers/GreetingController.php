@@ -19,7 +19,7 @@ class GreetingController extends Controller
     }
 
 
-    public function sayHello(Request $request, $name)
+    public function sayHello(Request $request, $name = null)
     {
         /**
          * Document, [Basic Controllers]
