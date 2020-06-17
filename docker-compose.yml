@@ -26,3 +26,9 @@ services:
       MYSQL_DATABASE: mydb
       MYSQL_USER: dbuser
       MYSQL_PASSWORD: password
+  redis:
+    image: redis:alpine3.12
+    restart: always
+    ports:
+      - "16379:6379"
+

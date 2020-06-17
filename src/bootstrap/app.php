@@ -81,6 +81,7 @@ $app->singleton(
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+$app->register(Illuminate\Redis\RedisServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -119,5 +120,6 @@ $app->routeMiddleware([
  * load test configure (if you see source code, it will go base/config/test.php
  */
 $app->configure('test');
+$app->configure('database');
 
 return $app;

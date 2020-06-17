@@ -21,6 +21,9 @@ RUN pecl install -f xdebug-2.5.5
 RUN docker-php-ext-enable xdebug
 ADD debug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
+# Redis
+RUN pecl install redis && docker-php-ext-enable redis
+
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
