@@ -10,7 +10,6 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-use Illuminate\Support\Facades\Redis;
 
 $router->get('/', function () use ($router) {
     /**
@@ -19,14 +18,6 @@ $router->get('/', function () use ($router) {
     echo env('MYNAME') . '<br/>';
     echo config('test.test_key') . '<br/>';
     echo app()->environment() . '<br/>';
-
-    if (Redis::EXISTS('visits')) {
-        Redis::INCR('visits');
-    } else {
-        Redis::SET('visits', 1, 'EX', 10);
-    }
-    Redis::EXPIRE('visits', 10);
-    echo 'within 10 seconds vist: '.Redis::GET('visits').'<br/>';
 
     return $router->app->version();
 });
@@ -99,4 +90,9 @@ $router->get('www', function () {
 $router->get('hello[/{name}]', 'GreetingController@sayHello');
 
 $router->get('users[/{id}]', 'UserController@getUsers');
+
 $router->post('users', 'UserController@postUser');
+
+$router->get('tryRedis', 'TryRedisController@visit');
+
+$router->get('list/op/{operation}[/content/{content}]', 'TryRedisController@list');
