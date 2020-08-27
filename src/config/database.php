@@ -1,7 +1,7 @@
 <?php
 return [
     'default' =>env('DB_CONNECTION', 'mysql'),
-    
+
     'redis' => [
 
         'client' => env('REDIS_CLIENT', 'phpredis'),
