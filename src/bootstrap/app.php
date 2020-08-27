@@ -23,7 +23,7 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
-// $app->withFacades();
+$app->withFacades();
 
 // $app->withEloquent();
 
@@ -81,6 +81,7 @@ $app->singleton(
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+$app->register(Illuminate\Redis\RedisServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -99,7 +100,26 @@ $app->router->group([
     require __DIR__.'/../routes/web.php';
 });
 
-// load test configure (if you see source code, it will go base/config/test.php
+/**
+ * Document [middleware] Register a Global Middleware
+ */
+//$app->middleware([
+//    App\Http\Middleware\OldMiddleware::class
+//]);
+
+
+/**
+ * Document [middleware] Assigning Middleware To Routes
+ */
+$app->routeMiddleware([
+    'oldMiddleware' => App\Http\Middleware\OldMiddleware::class,
+]);
+
+/**
+ * Document [Configuration] Play with configurations.
+ * load test configure (if you see source code, it will go base/config/test.php
+ */
 $app->configure('test');
+$app->configure('database');
 
 return $app;

@@ -10,13 +10,7 @@
 | is ready to receive HTTP / Console requests from the environment.
 |
 */
-
 $app = require __DIR__.'/../bootstrap/app.php';
-
-// play with configurations,
-echo env('NAME') . '<br/>';
-echo config('test.test_key') . '<br/>';
-echo app()->environment() . '<br/>';
 
 /*
 |--------------------------------------------------------------------------
